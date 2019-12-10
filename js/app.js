@@ -4,28 +4,29 @@ window.onload = function() {
 }
 let theList = [];
 const addItem = function() {
-  alert("this is running");
+  let run = true;
+  let task = "";
   while (run == true){
-    let task = prompt("Enter a task: ");
+    task = prompt("Enter a task: ");
     if (task == null){
       run = false;
     }else {
-      do {
-        let priority = "";
-        let runCheckPriority = false;
-      } while (runCheckPriority == false){
+      let priority = "";
+      let runCheckPriority = false;
+      while (runCheckPriority == false){
         priority = prompt("Is this high priority? Type yes or no.");
         priority = priority.toLowerCase();
         (priority == "yes" || priority == "no")? runCheckPriority = true : runCheckPriority = false;
       }
       run = false;
       let itemToAdd = {
-        item: task,
-        priority: priority,
+        item: "task",
+        priority: "priority",
         complete: false
       }
-      (itemToAdd.priority == "yes")? theList.unshift(itemToAdd) : theList.push(itemToAdd);
-      alert(theList);
+      alert(itemToAdd[prop]);
+      (itemToAdd.priority == "yes")? theList.unshift(itemToAdd) : alert("it worked");
+      alert(theList[0]);
     }
   }
 };
