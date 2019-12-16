@@ -46,14 +46,19 @@ button:hover {
   width: 80%;
 }
 
-#edit-button {
+#items-in-list {
   margin-top: 6.9px;
-  margin-left: 400px;
+  margin-left: 10px;
   margin-right: 10px;
   font: bold 1.2em "Century Gothic", "Roboto", "Lobster", comic;
   background-color: blue;
 }
 
-#edit-button:hover {
+#items-in-list:hover {
   box-shadow: 0.3em 0.3em 0.3em #696969;
+}
+
+img{
+  height: 50px;
+  width: 200px;
 }

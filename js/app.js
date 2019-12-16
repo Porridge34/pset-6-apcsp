@@ -25,18 +25,37 @@ const addItem = function() {
         priority = priority.toLowerCase();
         (priority == "yes" || priority == "no" || priority == null)? runCheckPriority = true : runCheckPriority = false;
       }
+      if (priority != null){
+        let itemToAdd = Object.create({
+          "item": task,
+          "priority": priority,
+          "complete": false
+        });
+        (priority == "yes")? theList.unshift(itemToAdd) : theList.push(itemToAdd);
+        //adding the edit button
+        let editButton = document.createElement("BUTTON");
+        editButton.innerHTML = "click to edit";
+        function checkIndex(item){
+          item == itemToAdd;
+        }
+        editButton.id = theList.findIndex(checkIndex);
+        document.getElementById("items-in-list").appendChild(editButton);
+        printObject(itemToAdd); //debug
+        //adding the exclamation mark
+        if (priority == "yes"){
+          let exclamation = document.createElement("IMG");
+          exclamation.src = "images\\exclamation.jpg";
+          exclamation.id = theList.findIndex(checkIndex);
+          document.getElementById("items-in-list").appendChild(exclamation);
+        }
+        //adding the text
+        let theTask = document.createElement("p");
+        theTask.innerHTML = task;
+        theTask.id = theList.findIndex(checkIndex);
+        document.getElementById("items-in-list").appendChild(theTask);
+        document.getElementById("items-in-list").style.pageBreakAfter = "always";
+      }
       run = false;
-      let itemToAdd = Object.create({
-        "item": task,
-        "priority": priority,
-        "complete": false
-      });
-      var editButton = document.createElement("BUTTON");
-      editButton.innerHTML = "click to edit";
-      editButton.id = "edit-button";
-      document.body.appendChild(editButton);
-      printObject(itemToAdd);
-      (priority == "yes")? theList.unshift(itemToAdd) : theList.push(itemToAdd);
     }
   }
 };
