@@ -39,20 +39,30 @@ const addItem = function() {
           item == itemToAdd;
         }
         editButton.id = theList.findIndex(checkIndex);
-        document.getElementById("items-in-list").appendChild(editButton);
         printObject(itemToAdd); //debug
+        //adding the text
+        let theTask = document.createElement("p");
+        theTask.id = theList.findIndex(checkIndex);
+        //checkbox
+        let checkbox = document.createElement("IMG");
+        checkbox.src = "images\\emptybox.jpg";
+        checkbox.id = theTask.id;
+        //container
+        let container = document.createElement("DIV");
+        container.id = theTask.id;
         //adding the exclamation mark
         if (priority == "yes"){
           let exclamation = document.createElement("IMG");
           exclamation.src = "images\\exclamation.jpg";
-          exclamation.id = theList.findIndex(checkIndex);
-          document.getElementById("items-in-list").appendChild(exclamation);
+          exclamation.id = theTask.id;
+          theTask.innerHTML = task;
+          container.innerHTML = theTask + checkbox + priority;
+          document.getElementById("items-in-list").prepend(container);
+        }else if (priority == "no"){
+          theTask.innerHTML = task;
+          container.innerHTML = theTask + checkbox + editButton;
+          document.getElementById("items-in-list").appendChild(container);
         }
-        //adding the text
-        let theTask = document.createElement("p");
-        theTask.innerHTML = task;
-        theTask.id = theList.findIndex(checkIndex);
-        document.getElementById("items-in-list").appendChild(theTask);
         document.getElementById("items-in-list").style.pageBreakAfter = "always";
       }
       run = false;
@@ -70,7 +80,7 @@ const removeItem = function() {
     if (itemToRemove == null){
       run = false;
     }else if (itemToRemove <= 0 || isNaN(itemToRemove) || itemToRemove > theList.length){
-      alert("Invalid response, try again."); //this was coded by ivy ng pls dont steal the code
+      alert("Invalid response, try again."); //manual blinking and breathing
     }else{
       document.body.firstChild.remove();
       storeSplice = theList.splice(itemToRemove-1, 1);
