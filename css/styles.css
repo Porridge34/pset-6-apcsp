@@ -20,13 +20,60 @@ h3 {
   letter-spacing: 0.1em;
 }
 
+.exclamation {
+  font-size: 69px;
+  color: gray;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.priority {
+  order: -100000000;
+  color: red;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #696969;
+  font-size: 18px;
+  transition: 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
 button {
   display: inline-block;
   margin: auto;
   margin-left: 1%;
   margin-right: 1%;
   height: 3em;
-  font: 1.1em "Comic Sans", "Comic Sans", "Lobster", times;
+  font: 1.1em "Comic Sans", "Comic Sans MS", "Lobster", times;
   color: #9384d1;
   background-color: #4A412A;
 }
@@ -44,18 +91,6 @@ button:hover {
 
 .header hr {
   width: 80%;
-}
-
-#items-in-list {
-  margin-top: 6.9px;
-  margin-left: 10px;
-  margin-right: 10px;
-  font: bold 1.2em "Century Gothic", "Roboto", "Lobster", comic;
-  background-color: blue;
-}
-
-#items-in-list:hover {
-  box-shadow: 0.3em 0.3em 0.3em #696969;
 }
 
 img{
