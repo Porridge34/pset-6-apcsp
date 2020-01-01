@@ -20,19 +20,13 @@ h3 {
   letter-spacing: 0.1em;
 }
 
-.exclamation {
+#exclamation {
   font-size: 69px;
-  color: gray;
 }
 
 ul {
   display: flex;
   flex-direction: column;
-}
-
-.priority {
-  order: -100000000;
-  color: red;
 }
 
 ul li {
@@ -45,6 +39,7 @@ ul li {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  color: gray;
   user-select: none;
 }
 
@@ -96,4 +91,8 @@ button:hover {
 img{
   height: 50px;
   width: 200px;
+}
+
+.priority {
+  color: red;
 }
