@@ -1,4 +1,4 @@
-// Create a new list item when clicking on the "Add" button
+//adds element to list
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("input").value;
@@ -32,24 +32,18 @@ function newElement() {
 
   li.addEventListener('click', function(ev) {
     if (ev.target.id == "exclamation") {
-      console.log(ev.target.id);
       ev.target.classList.toggle('priority');
-      console.log(ev.target.className);
       if (ev.target.className == 'priority'){
         document.getElementById("unorderList").prepend(ev.target.parentElement);
-        console.log("EEEE");
       }else{
         document.getElementById("unorderList").append(ev.target.parentElement);
-        console.log("FFFFF");
       }
     }
   }, false);
 
-  // Add a "checked" symbol when clicking on a list item
   li.addEventListener('click', function(ev) {
-    console.log("this is running");
     if (ev.target.tagName === 'LI'){
-      ev.target.classList.toggle('checked');
+      ev.target.classList.toggle('checked');//breathe if dumb
     }
   }, false);
 
